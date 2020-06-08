@@ -113,7 +113,7 @@
       </td>
     </tr>
     <tr>
-      <td>Ayam Potong</td>
+      <td>Ayam setengah potong</td>
       <td>Bahan Makanan</td>
       <td>1</td>
       <td>gram</td>
@@ -124,7 +124,7 @@
       </td>
     </tr>
     <tr>
-      <td>Ayam Potong</td>
+      <td>kalkun</td>
       <td>Bahan Makanan</td>
       <td>1</td>
       <td>gram</td>
