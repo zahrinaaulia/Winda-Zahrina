@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>@yield('title')</title>
 
     <style>
     body {
@@ -22,15 +22,20 @@
       -moz-transition: margin .25s ease-out;
       -o-transition: margin .25s ease-out;
       transition: margin .25s ease-out;
+      background-color:#274FC2;
+      color: white;
+
     }
 
     #sidebar-wrapper .sidebar-heading {
       padding: 0.875rem 1.25rem;
       font-size: 1.2rem;
+      background-color:#274FC2;
     }
 
     #sidebar-wrapper .list-group {
       width: 15rem;
+      background-color:#274FC2;
     }
 
     #page-content-wrapper {
@@ -56,6 +61,20 @@
       }
     }
 
+      .list-group-item.list-group-item-action{
+        background-color: #274FC2;
+        color: white;
+        border:none;
+      }
+
+      th{
+        text-align: center;
+      }
+
+      td{
+        text-align: center;
+      }
+
     </style>
 
   </head>
@@ -64,15 +83,15 @@
     <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Start Bootstrap </div>
-      <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+      <div class="list-group list-group-flush" style="background-color:#274FC2;">
+        <a href="#" class="list-group-item list-group-item-action" id="section">Dashboard</a>
+        <a href="#" class="list-group-item list-group-item-action" id="section">Shortcuts</a>
+        <a href="#" class="list-group-item list-group-item-action" id="section">Overview</a>
+        <a href="#" class="list-group-item list-group-item-action" id="section">Events</a>
+        <a href="#" class="list-group-item list-group-item-action" id="section">Profile</a>
+        <a href="#" class="list-group-item list-group-item-action" id="section">Status</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -107,15 +126,13 @@
         </div>
       </nav>
 
-      <div class="container-fluid">
-        <h1 class="mt-4">Simple Sidebar</h1>
-        <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
-      </div>
-    </div>
     <!-- /#page-content-wrapper -->
+    @yield('container')
 
   </div>
+
+  <footer>
+  </footer>
 
 
     <!-- Optional JavaScript -->
