@@ -23,6 +23,7 @@ Route::post('/addKategori','KategoriController@store');
 Route::get('/delete/{id}','EditMakananController@destroy');
 
 Route::post('/addBahan','EditMakananController@store');
+Route::get('/delete/{id}','KategoriController@destroy');
 
 // Route::post('/addMakanan','MakananController@store');
 // Route::get('/deleteMakanan/{id}','MakananController@destroy');

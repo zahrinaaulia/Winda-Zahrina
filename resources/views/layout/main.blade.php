@@ -99,7 +99,7 @@
       <div class="sidebar-heading">Start Bootstrap </div>
       <div class="list-group list-group-flush">
         <a href="#" class="list-group-item list-group-item-action" id="section">Home</a>
-        <a href="#" class="list-group-item list-group-item-action" id="section">Input</a>
+        <a href="/" class="list-group-item list-group-item-action" id="section">Daftar Kategori</a>
         <a href="/makanan" class="list-group-item list-group-item-action" id="section">Daftar Bahan Makanan</a>
         <a href="#" class="list-group-item list-group-item-action" id="section">Pengeluaran Bahan Makanan</a>
         <a href="#" class="list-group-item list-group-item-action" id="section">Daftar Pengeluaran Bahan Makanan</a>
