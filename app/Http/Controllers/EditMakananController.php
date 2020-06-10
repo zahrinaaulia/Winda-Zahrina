@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use DB;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Bahan;
 
 class EditMakananController extends Controller
 {
@@ -14,10 +16,12 @@ class EditMakananController extends Controller
      */
     public function index()
     {
+      $kategori = DB::table('kategoris')->get();
+
       $bahan = DB::table('kategoris')
             ->join('bahans', 'id_kategori', '=', 'kategoris.id')
             ->get();
-        return view('edit_makanan',['bahan' => $bahan ]);
+        return view('edit_makanan')->with('bahan',$bahan)->with('kategori',$kategori);
     }
 
     /**
@@ -41,20 +45,12 @@ class EditMakananController extends Controller
     {
         
         $bahan = new bahan;
-        $bahan->id = $request->id_bahan;
         $bahan->Nama_Bahan = $request->namabahan;
-        $bahan->Jumlah = $request->jumlah;
+        $bahan->Jumlah = $request->jumlahbahan;
         $bahan->Satuan = $request->satuanbahan;
         $bahan->Harga_Satuan = $request->hargabahan;
-        $bahan->created_at = date("Y-m-d");
         $bahan->id_kategori = $request->id_kategori;
         $bahan->save();
-        DB::table('bahan')
-                     ->where('id','=', $request->id_bahan)
-                     ->update('Nama_Bahan');
-        DB::table('bahan')
-                     ->where('id','=', $request->id_bahan)
-                     ->update('Satuan');
         return back();
     }
 

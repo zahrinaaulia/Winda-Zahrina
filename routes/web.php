@@ -17,10 +17,12 @@ use Illuminate\Support\Facades\Route;
 //      return view('/aabahan/editb');
 //  });
 
-Route::get('/','EditMakananController@index');
+Route::get('/','KategoriController@index');
+Route::get('/makanan','EditMakananController@index');
+Route::post('/addKategori','KategoriController@store');
 Route::get('/delete/{id}','EditMakananController@destroy');
-Route::post('/edit','EditMakananController@edit');
 
+Route::post('/addBahan','EditMakananController@store');
 
 // Route::post('/addMakanan','MakananController@store');
 // Route::get('/deleteMakanan/{id}','MakananController@destroy');
