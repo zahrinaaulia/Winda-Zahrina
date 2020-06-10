@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//  Route::get('/', function () {
-//      return view('/aabahan/editb');
-//  });
 
 Route::get('/','KategoriController@index');
 Route::get('/makanan','EditMakananController@index');
@@ -25,8 +22,5 @@ Route::get('/delete/{id}','EditMakananController@destroy');
 Route::post('/addBahan','EditMakananController@store');
 Route::get('/delete/{id}','KategoriController@destroy');
 
-// Route::post('/addMakanan','MakananController@store');
-// Route::get('/deleteMakanan/{id}','MakananController@destroy');
-// Route::post('/editMakanan','MakananController@edit');
 
 

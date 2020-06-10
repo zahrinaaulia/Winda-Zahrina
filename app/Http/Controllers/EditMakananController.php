@@ -9,11 +9,7 @@ use App\Bahan;
 
 class EditMakananController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
       $kategori = DB::table('kategoris')->get();
@@ -24,23 +20,13 @@ class EditMakananController extends Controller
         return view('edit_makanan')->with('bahan',$bahan)->with('kategori',$kategori);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
         return view('edit_makanan');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
         
@@ -54,29 +40,18 @@ class EditMakananController extends Controller
         return back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit($id)
     {
         //
         $bahan = DB::table('bahans')->select('Jumlah')->where('id', '=', $request->id_bahan)->first();
-        // $databahan = DB::table('bahans')->select('Jumlah')->where('id', '=', $request->id_bahan)->first();
-        // $stok = $databahan->Jumlah + $sebelumBKeluar->Jumlah - $request->jumlahedit;
+        
         DB::table('bahans')
                      ->where('id', $request->id_bahan)
                      ->update(['Satuan' => $request->satuanbahan]);
@@ -94,31 +69,14 @@ class EditMakananController extends Controller
         return back();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
-        //
-        // DB::destroy($bahan->id);
-        // return redirect('/')->with('status','Data Bahan Berhasil Dihapus !');
-
-        //$bahan = DB::table('bahans')->select('Nama_Bahan','id','Harga_Satuan','Jumlah','Satuan','id_kategori')->where('id', '=', $id)->first();
         DB::table('bahans')->where('id', '=', $id)->delete();
         return back();
     }
