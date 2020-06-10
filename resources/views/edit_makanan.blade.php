@@ -15,6 +15,7 @@
   class="table table-striped table-bordered">
   <thead>
     <tr>
+     
       <th scope="col" >Nama Bahan</th>
       <th scope="col">Kategori</th>
       <th scope="col">Jumlah</th>
@@ -32,9 +33,11 @@
       <td>{{ $bhn->Satuan }}</td>
       <td>{{ $bhn->Harga_Satuan }}</td>
       <td>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-edit-bahan">
-        <span class="glyphicon glyphicon-remove"></span>Edit</button>
-        <button type="button" class="btn btn-danger">Hapus</button>
+                    <a style="margin-left:10px;" href="delete/{{ $bhn->id }}">
+                    <button class="btn btn-danger">Delete</button></a>
+                    <button id="butEdit" style="margin-left:10px;"data-target=".modal1" data-toggle="modal" value="{{ $bhn->id }}" class="btn btn-secondary">Edit</button>
+        </form>
+
       </td>
     </tr>
     @endforeach
@@ -43,43 +46,51 @@
 
 
 </div>
-
-<div class="modal fade" id="modal-edit-bahan" tabindex="-1" role="dialog" aria-labelledby="validate_modal" aria-hidden="true">
+@foreach($bahan as $bhn)
+<!-- <div class="modal fade" id="modal-edit-bahan" tabindex="-1" role="dialog" aria-labelledby="validate_modal" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content" style="padding-left: 50px">
                     <div class="modal-header">
                         <h1 class="modal-title text-center" id="exampleModalCenterTitle" style="padding-left:80px">Edit Bahan</h1>
                     </div>
+                   
                     <form method="POST" action="#">
                         <div class="modal-body">
+                       
                             <div class="row">
                                 <div class="col-xs-12">
                                     <label>ID Bahan</label>
-                                    <input type="text" name="idbahan" style="width: 400px" class="form-control text-center" value="#" readonly>
+                                    <input type="text" name="idbahan" style="width: 400px" class="form-control text-center" value="{{ $bhn->id }}" readonly>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
                                     <label>Nama Bahan</label>
-                                    <input type="text" name="namabahan" value="#" class="form-control text-center" style="width: 400px">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <label>Harga</label>
-                                    <input type="text" value="#" name="hargabahan" class="form-control text-center" style="width: 400px">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <label>Jumlah</label>
-                                    <input type="text" name="jumlahbahan" value="#" class="form-control text-center" style="width: 400px">
+                                    <input type="text" name="namabahan" value="{{ $bhn->Nama_Bahan }}" class="form-control text-center" style="width: 400px">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12">
                                     <label>Kategori</label>
-                                    <input type="text" name="kategoribahan" class="form-control text-center" style="width: 400px">
+                                    <input type="text" name="kategoribahan" class="form-control text-center" value="{{ $bhn->Nama_Kategori }}" style="width: 400px">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <label>Harga</label>
+                                    <input type="text" value="{{ $bhn->Harga_Satuan }}" name="hargabahan" class="form-control text-center" style="width: 400px">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <label>Jumlah</label>
+                                    <input type="text" name="jumlahbahan" value="{{ $bhn->Jumlah }}" class="form-control text-center" style="width: 400px">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <label>Satuan</label>
+                                    <input type="text" name="satuanbahan" value="{{ $bhn->Satuan}}" class="form-control text-center" style="width: 400px">
                                 </div>
                             </div>
                            <br>
@@ -91,12 +102,14 @@
                                     <button style="margin-left: 10px; width: 100px; height: 50px" class="btn btn-light" data-dismiss="modal">Batal</button>
                                 </div>
                             </div>
+                         
                     </form>
+                    
                     </div>
                 </div>
             </div>
-        </div>
-
+        </div> -->
+@endforeach
 <div class="container-fluid" style="margin:3%">
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-tambah-kategori">
         <span class="glyphicon glyphicon-remove"></span>Tambah Kategori</button>
