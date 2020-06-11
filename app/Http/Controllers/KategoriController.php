@@ -41,9 +41,16 @@ class KategoriController extends Controller
     }
 
   
-    public function edit($id)
+    public function edit(request $request)
     {
         //
+
+        DB::table('kategoris')
+        ->where('id', $request->id_kategori)
+        ->update(['Nama_Kategori' => $request->namakategori]);
+
+        return back();
+  
     }
 
   

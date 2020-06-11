@@ -23,4 +23,4 @@ Route::post('/addBahan','EditMakananController@store');
 Route::get('/delete/{id}','KategoriController@destroy');
 
 Route::post('/editBahan','EditMakananController@edit');
-
+Route::post('/editKategori','KategoriController@edit');
