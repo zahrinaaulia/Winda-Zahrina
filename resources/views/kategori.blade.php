@@ -29,8 +29,8 @@
       
      
       <td>
-                    <a style="margin-left:10px;" href="delete/{{ $ktr->id }}">
-                    <button class="btn btn-danger">Delete</button></a>
+                    <!-- <a style="margin-left:10px;" href="delete/{{ $ktr->id }}">
+                    <button class="btn btn-danger">Delete</button></a> -->
                     <button id="butEdit" style="margin-left:10px;"data-target=".modal1" data-toggle="modal" value="{{ $ktr->id }}" class="btn btn-secondary">Edit</button>
         </form>
 

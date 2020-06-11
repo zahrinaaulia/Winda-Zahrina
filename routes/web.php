@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','KategoriController@index');
 Route::get('/makanan','EditMakananController@index');
 Route::post('/addKategori','KategoriController@store');
-Route::get('/delete/{id}','EditMakananController@destroy');
+Route::get('/deleteBahan/{id}','EditMakananController@destroy');
 
 Route::post('/addBahan','EditMakananController@store');
 Route::get('/delete/{id}','KategoriController@destroy');
 
-
+Route::post('/editBahan','EditMakananController@edit');
 

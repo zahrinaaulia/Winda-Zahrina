@@ -47,25 +47,22 @@ class EditMakananController extends Controller
     }
 
     
-    public function edit($id)
+    public function edit(request $request)
     {
         //
-        $bahan = DB::table('bahans')->select('Jumlah')->where('id', '=', $request->id_bahan)->first();
+        //$bahan = DB::table('bahans')->select('Jumlah')->where('id', '=', $request->id_bahan)->first();
         
         DB::table('bahans')
-                     ->where('id', $request->id_bahan)
-                     ->update(['Satuan' => $request->satuanbahan]);
-        DB::table('bahans')
-                     ->where('id', $request->id_bahan)
-                     ->update(['Jumlah' => $request->jumlahbahan]);
-                    
-        DB::table('bahans')
-                     ->where('id', $request->id_bahan)
-                     ->update(['Harga_Satuan' => $hargabahan]);
+        ->where('id', $request->id_bahan)
+        ->update(['Nama_Bahan' => $request->namabahan]);
 
         DB::table('bahans')
                      ->where('id', $request->id_bahan)
-                     ->update(['Nama_Kategori' => $kategoribahan]);
+                     ->update(['Satuan' => $request->satuanbahan]);
+               
+        DB::table('bahans')
+                     ->where('id', $request->id_bahan)
+                     ->update(['Harga_Satuan' => $request->hargabahan]);
         return back();
     }
 

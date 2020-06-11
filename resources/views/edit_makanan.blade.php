@@ -32,12 +32,62 @@
                 <td>{{ $bhn->Satuan }}</td>
                 <td>{{ $bhn->Harga_Satuan }}</td>
                 <td>
-                    <a style="margin-left:10px;" href="delete/{{ $bhn->id }}">
+                    <!-- button delete -->
+                    <a style="margin-left:10px;" href="deleteBahan/{{ $bhn->id }}">
                         <button class="btn btn-danger">Delete</button></a>
-                    <button id="butEdit" style="margin-left:10px;" data-target=".modal1" data-toggle="modal"
-                        value="{{ $bhn->id }}" class="btn btn-secondary">Edit</button>
-                    </form>
+                    
+                    <!-- button edit -->
+                    <button type="button" style="margin-left:10px;" data-target=".modal{{$bhn->id}}" data-toggle="modal"
+                        value="#" class="btn btn-secondary">Edit</button>
+                    <div class="modal fade modal{{$bhn->id}}" tabindex="-1" role="dialog"
+                        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content" style="padding:20px; margin-left:50px">
+                                <h3>Edit Bahan</h3>
+                                <!-- form untuk edit bahan -->
+                                <form method="POST" action="/editBahan">
+                                @csrf
+                                    <div class="form-group">
+                                        <label for="namabahan">Nama Bahan</label>
+                                        <input type="text" class="form-control" name=namabahan id="namabahan"
+                                            aria-describedby="emailHelp" value="{{$bhn->Nama_Bahan}}">
+                                        <input style="display:none;" type="text" class="form-control" name=id_bahan id="id_bahan"
+                                            aria-describedby="emailHelp" value={{$bhn->id}}>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kategoribahan">Nama Kategori</label>
+                                        <input type="text" class="form-control" name=kategoribahan
+                                            id="kategoribahan" aria-describedby="emailHelp"
+                                            value="{{$bhn->Nama_Kategori}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="jumlahbahan">Jumlah</label>
+                                        <input type="text" class="form-control" name=jumlahbahan id="jumlahbahan"
+                                            aria-describedby="emailHelp" value="{{$bhn->Jumlah}}" readonly>
+                                    </div>
+    
+                                    <div class="form-group">
+                                        <label for="hargabahan">Satuan</label>
+                                        <input type="text" class="form-control" name=satuanbahan id="satuanbahan"
+                                            aria-describedby="emailHelp" value="{{$bhn->Satuan}}" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="hargabahan">Harga Satuan</label>
+                                        <input type="text" class="form-control" name=hargabahan id="hargabahan"
+                                            aria-describedby="emailHelp" value="{{$bhn->Harga_Satuan}}" >
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-xs-8">
+                                            <button type="submit" class="btn btn-dark"
+                                                style="width: 100px; height: 50px; margin-right:100px;margin-left:40px; margin-top:-40px;">Edit</button>
+                                        </div>
+                                    </div>
 
+                                </form>
+
+                            </div>
                 </td>
             </tr>
             @endforeach
@@ -64,9 +114,9 @@
                     id="inputGroupSelect01">
                     <option selected disable>Nama Kategori</option>
                     @foreach( $kategori as $ktr )
-                    
+
                     <option value="{{ $ktr->id }}">{{ $ktr->Nama_Kategori }}</option>
-                   
+
                     @endforeach
                 </select>
                 <div class="form-group">
@@ -89,7 +139,7 @@
                     <input type="text" class="form-control" name=hargabahan id="exampleInputEmail1"
                         aria-describedby="emailHelp" placeholder="Masukkan Harga Bahan">
                 </div>
-               
+
                 <br>
                 <div class="row">
                     <div class="col-xs-8">
