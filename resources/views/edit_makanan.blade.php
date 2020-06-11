@@ -3,6 +3,14 @@
 @section('title','Insert')
 
 @section('container')
+@if (session('Informasi'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('Informasi') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+    </div>
+@endif
 
 <div class="container-fluid" style="margin:3%">
     <h4>Daftar Bahan Makanan</h4>

@@ -37,7 +37,7 @@ class EditMakananController extends Controller
         $bahan->Harga_Satuan = $request->hargabahan;
         $bahan->id_kategori = $request->id_kategori;
         $bahan->save();
-        return back();
+        return back()->with('Informasi','Bahan Berhasil Di Ditambahkan!');
     }
 
     
@@ -63,7 +63,7 @@ class EditMakananController extends Controller
         DB::table('bahans')
                      ->where('id', $request->id_bahan)
                      ->update(['Harga_Satuan' => $request->hargabahan]);
-        return back();
+        return back()->with('Informasi','Bahan Berhasil Di Edit!');
     }
 
     public function update(Request $request, $id)
